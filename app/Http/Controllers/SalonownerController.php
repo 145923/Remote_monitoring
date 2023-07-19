@@ -10,6 +10,7 @@ class SalonownerController extends Controller
  public function all(){
     //calling the salonOwner model
     $allSalonOwner = SalonOwner::all()->toArray();
+    echo "<h1>Within the all method</h1>";
     
     //pass data to view file
     

@@ -10,6 +10,7 @@ class RoleController extends Controller
  public function all(){
 //calling the role model
 $allRoles = Role::all()->toArray();
+dd($allRoles);
 
 //pass data to view file
 
@@ -17,7 +18,9 @@ $allRoles = Role::all()->toArray();
  //showing one role
  public function one(){}
  //showing the form to add a role
- public function add(){}
+ public function add(){
+ echo 'add method';
+ }
  public function save(){}
  public function edit(){}
 }

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceptionDash;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SalonownerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,17 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+    //echo "<h1>Default request</h1>";
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//RoleController->all()
+Route::get('role/all',[RoleController::class, 'all']);
+Route::get('role',[RoleController::class, 'all']);  
+Route::get('role/add',[RoleController::class, 'add']);
+Route::get('role/edit',[RoleController::class, 'edit']);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';
-Route::get('/Receptionist',  [Receptiondash::class,  'Displaydashboard']);
+Route::get('Salonowner',[SalonownerController::class,'all']);
+    
